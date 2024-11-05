@@ -16,12 +16,13 @@ jobs:
         strategy:
             fail-fast: false
 	    matrix:
-     		env:[os:ubuntu-22.04, os:ubuntu-24.04]
-                component:[amase]
-                qualifier:[scenario=release]
-        runs-on:${{ matrix.env.os }}
+     		env: [os:ubuntu-22.04, os:ubuntu-24.04]
+                component: [amase]
+                qualifier: [scenario=release]
+        runs-on: ${{ matrix.env.os }}
         steps:
-            - uses: actions/checkout@v4
+	    - name: checkout version
+	      uses: actions/checkout@v4
               with:
                   path: OpenAMASE
 
