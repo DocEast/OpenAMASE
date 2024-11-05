@@ -6,7 +6,6 @@ on:
     push:
         paths:
             - 'OpenAMASE/**'
-	    
     schedule:
         - cron: '45 3 * * 4'
     workflow_dispatch:
@@ -16,14 +15,11 @@ jobs:
     build:
         strategy:
             fail-fast: false
-            matrix:
-                env: [
-                    {os: ubuntu-22.04},
-                    {os: ubuntu-24.04}
-                ]
-                component: [amase]
-                qualifier: [scenario=release]
-        runs-on: ${{ matrix.env.os }}
+	    matrix:
+     		env:[os:ubuntu-22.04, os:ubuntu-24.04]
+                component:[amase]
+                qualifier:[scenario=release]
+        runs-on:${{ matrix.env.os }}
         steps:
             - uses: actions/checkout@v4
               with:
