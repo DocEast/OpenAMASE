@@ -178,7 +178,7 @@ public class FindTool {
         findNext();
 
         try {
-            textComp.scrollRectToVisible(textComp.modelToView2D(textComp.getCaretPosition()).getBounds());
+            textComp.scrollRectToVisible(textComp.modelToView(textComp.getCaretPosition()));
         } catch (BadLocationException ex) {
             Logger.getLogger(FindTool.class.getName()).log(Level.SEVERE, null, ex);
         }

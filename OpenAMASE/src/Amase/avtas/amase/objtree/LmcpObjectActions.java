@@ -379,7 +379,7 @@ public class LmcpObjectActions extends PopupMenuAdapter {
                     try {
                         Class tClass = Class.forName(packName.getName() + "." + t);
                         if (origClass.isAssignableFrom(tClass)) {
-                            retList.add(tClass.getDeclaredConstructor().newInstance());
+                            retList.add(tClass.newInstance());
                         }
                     } catch (Exception ex) {
                         Logger.getLogger(LmcpObjectActions.class.getName()).log(Level.SEVERE, null, ex);

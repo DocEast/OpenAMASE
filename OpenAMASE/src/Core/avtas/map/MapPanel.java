@@ -602,7 +602,7 @@ public class MapPanel extends JComponent implements MouseMotionListener, MouseWh
         if ((e.getModifiersEx() & bothDown) == bothDown) {
             zoom(Math.pow(1.05, -dy), e);
         }
-        else if ((e.getModifiersEx() & MouseEvent.BUTTON3_DOWN_MASK) == MouseEvent.BUTTON3_DOWN_MASK) {
+        else if (e.getButton() == MouseEvent.BUTTON3) {
             pan(dx, dy);
         }
         else if (proj != null) {
@@ -633,7 +633,7 @@ public class MapPanel extends JComponent implements MouseMotionListener, MouseWh
             double lat = proj.getLat(e.getX(), e.getY());
             popupMenu.showMenu(e, lat, lon);
         }
-        else if ((e.getModifiersEx() & MouseEvent.BUTTON1_DOWN_MASK) == MouseEvent.BUTTON1_DOWN_MASK) {
+        else if (e.getButton() == MouseEvent.BUTTON1) {
             double lon = proj.getLon(e.getX(), e.getY());
             double lat = proj.getLat(e.getX(), e.getY());
             for (MapMouseListener l : mouseListeners) {
@@ -658,7 +658,7 @@ public class MapPanel extends JComponent implements MouseMotionListener, MouseWh
             double lat = proj.getLat(e.getX(), e.getY());
             popupMenu.showMenu(e, lat, lon);
         }
-        else if ((e.getModifiersEx() & MouseEvent.BUTTON1_DOWN_MASK) == MouseEvent.BUTTON1_DOWN_MASK) {
+        else if (e.getButton()== MouseEvent.BUTTON1) {
             double lon = proj.getLon(e.getX(), e.getY());
             double lat = proj.getLat(e.getX(), e.getY());
             for (MapMouseListener l : mouseListeners) {
@@ -698,7 +698,7 @@ public class MapPanel extends JComponent implements MouseMotionListener, MouseWh
             double lat = proj.getLat(e.getX(), e.getY());
             popupMenu.showMenu(e, lat, lon);
         }
-        else if ((e.getModifiersEx() & MouseEvent.BUTTON2_DOWN_MASK) == MouseEvent.BUTTON2_DOWN_MASK && proj != null) {
+        else if ((e.getButton() == MouseEvent.BUTTON2) && proj != null) {
             pan(-e.getX() + getWidth() / 2, -e.getY() + getHeight() / 2);
 
         }

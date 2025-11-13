@@ -144,9 +144,7 @@ public class XmlSerializer {
                 }
             }
             return o;
-        } catch (ClassNotFoundException | InstantiationException |
-                    IllegalAccessException | NoSuchMethodException |
-                    InvocationTargetException ex ) {
+        } catch (ClassNotFoundException | InvocationTargetException | NoSuchMethodException | InstantiationException | IllegalAccessException ex) {
             Logger.getLogger(XmlSerializer.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }

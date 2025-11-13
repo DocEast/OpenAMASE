@@ -42,13 +42,13 @@ public class IntegerWrapModel extends SpinnerNumberModel {
     
     public Object getPreviousValue() {
         if (val - interval >= min)
-            return (val - interval);
-        else return (max - interval);
+            return val-interval;
+        else return max-interval;
     }
     
     public Object getNextValue() {
         if (val + interval < max)
-            return (val + interval);
+            return val + interval;
         else return min;
     }
     
